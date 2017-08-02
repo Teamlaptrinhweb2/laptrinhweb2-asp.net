@@ -15,7 +15,12 @@ namespace _1460650_.Models.Bus
             return db.Query<sanpham>("select * from sanpham");
 
         }
+        public static Page<sanpham> DanhSach(int pageNumber, int itemPerPage)
+        {
+            var db = new DienThoaiShopConnectionDB();
+            return db.Page<sanpham>(pageNumber, itemPerPage, "select * from sanpham");
 
+        }
 
 
         public static sanpham ChiTiet(int id )
