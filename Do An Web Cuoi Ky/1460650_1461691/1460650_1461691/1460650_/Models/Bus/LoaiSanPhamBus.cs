@@ -6,7 +6,7 @@ using System.Web;
 
 namespace _1460650_.Models.Bus
 {
-    public class LoaiSP
+    public class LoaiSanPhamBus
     {
         public static IEnumerable<loaisp> DanhSach()
         {

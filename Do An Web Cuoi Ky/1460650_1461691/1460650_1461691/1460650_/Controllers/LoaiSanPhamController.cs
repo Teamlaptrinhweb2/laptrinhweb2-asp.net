@@ -12,7 +12,7 @@ namespace _1460650_.Controllers
         // GET: LoaiSP
         public ActionResult Index()
         {
-            var dslsp = LoaiSP.DanhSach();
+            var dslsp = LoaiSanPhamBus.DanhSach();
             return View(dslsp);
         }
 
