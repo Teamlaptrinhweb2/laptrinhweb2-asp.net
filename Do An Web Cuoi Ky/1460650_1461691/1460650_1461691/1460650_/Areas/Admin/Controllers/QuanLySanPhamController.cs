@@ -13,15 +13,13 @@ using System.IO;
 namespace _1460650_.Areas.Admin.Controllers
 {
 
+    [Authorize(Roles = "Admin")]
     public class QuanLySanPhamController : Controller
     {
-
-
-
         // GET: Admin/QuanLySanPham
         public ActionResult Index()
         {
-            var dsSanPham = SanPhamBus.DanhSach();
+            var dsSanPham = QuanLyBus.DanhSach();
             return View(dsSanPham);
 
         }
@@ -48,6 +46,8 @@ namespace _1460650_.Areas.Admin.Controllers
         public ActionResult Create(sanpham sp)
         {
             // TODO: Add insert logic here
+
+            // Code upload 1 hình ảnh
             if (HttpContext.Request.Files.Count > 0)
             {
                 var hpf = HttpContext.Request.Files[0];
@@ -68,8 +68,7 @@ namespace _1460650_.Areas.Admin.Controllers
         public ActionResult Edit(string id)
         {
             var dataContext = new PetaPoco.Database("DienThoaiShopConnection");
-            var employee = dataContext.SingleOrDefault<sanpham>("Select * from sanpham where MaSanPham=@0",
-                                                             id);
+            var employee = dataContext.SingleOrDefault<sanpham>("Select * from sanpham where MaSanPham=@0",id);
             return View(employee);
         }
 
