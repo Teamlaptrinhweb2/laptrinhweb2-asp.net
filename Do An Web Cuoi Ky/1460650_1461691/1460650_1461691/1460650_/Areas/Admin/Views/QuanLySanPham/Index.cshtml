@@ -1,36 +1,41 @@
 ﻿@model IEnumerable<DienThoaiShopConnection.sanpham>
 
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Trang Quản Lý Sản Phẩm </h2>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("THÊM MỚI SẢN PHẨM", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.MaSanPham)
+           Mã Sản Phẩm
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.TenSanPham)
+           Tên Sản Phẩm
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.hinhanh)
+           Hình Ảnh
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Gia)
+          Giá
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MaLoai)
+           Mã loại
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.NhaSX)
+         Nhà Sản Xuất
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SoLuongTon)
+           Số lượng tồn
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.MoTa)
+            Mô tả
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BiXoa)
+          Bị xóa
         </th>
         <th></th>
     </tr>
