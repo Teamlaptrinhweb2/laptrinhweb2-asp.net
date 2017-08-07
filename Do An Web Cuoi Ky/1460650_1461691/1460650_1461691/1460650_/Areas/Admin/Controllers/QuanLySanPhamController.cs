@@ -118,6 +118,27 @@ namespace _1460650_.Areas.Admin.Controllers
             QuanLyBus.Xoa(id, sp);
             return RedirectToAction("Index");
         }
+        public ActionResult UploadMulti(List<HttpPostedFileBase> uploadFile)
+        {
+            string abc = "";
+            string def = "";
+            foreach (var item in uploadFile)
+            {
+
+                string filePath = Path.Combine(HttpContext.Server.MapPath("~/images/ima"),
+                                               Path.GetFileName(item.FileName));
+                item.SaveAs(filePath);
+
+                abc = string.Format("Upload {0} file thành công", uploadFile.Count);
+
+                def += item.FileName + "; ";
+
+
+            }
+            TempData["Msg"] = abc + "</br>" + def;
+            return RedirectToAction("Index");
+        }
 
     }
+
 }
