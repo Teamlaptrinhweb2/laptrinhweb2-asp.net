@@ -7,7 +7,7 @@ using System.Web;
 
 namespace _1460650_.Areas.Admin.Models
 {
-    public class QuanLyBus
+    public class QuanLySanPhamBus
     {
         public static IEnumerable<sanpham> DanhSach()
         {
@@ -15,8 +15,6 @@ namespace _1460650_.Areas.Admin.Models
             return db.Query<sanpham>("select * from sanpham");
 
         }
-
-
         public static sanpham ChiTietSanPham(string id)
         {
             var db = new PetaPoco.Database("DienThoaiShopConnection");

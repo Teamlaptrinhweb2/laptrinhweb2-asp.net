@@ -19,7 +19,7 @@ namespace _1460650_.Areas.Admin.Controllers
         // GET: Admin/QuanLySanPham
         public ActionResult Index()
         {
-            var dsSanPham = QuanLyBus.DanhSach();
+            var dsSanPham = QuanLySanPhamBus.DanhSach();
             return View(dsSanPham);
 
         }
@@ -28,7 +28,7 @@ namespace _1460650_.Areas.Admin.Controllers
         public ActionResult Details(string id)
         {
 
-            return View(QuanLyBus.ChiTietSanPham(id));
+            return View(QuanLySanPhamBus.ChiTietSanPham(id));
             //var dataContext = new PetaPoco.Database("DienThoaiShopConnection");
             //var employee = dataContext.SingleOrDefault<sanpham>("Select * from sanpham where MaSanPham=@0",id);
             //return View(employee);
@@ -60,7 +60,7 @@ namespace _1460650_.Areas.Admin.Controllers
                     sp.hinhanh = fullPathWithFileName;
                 }
             }
-            QuanLyBus.Them(sp);
+            QuanLySanPhamBus.Them(sp);
             return RedirectToAction("Index");
         }
 
@@ -115,7 +115,7 @@ namespace _1460650_.Areas.Admin.Controllers
         public ActionResult Delete(string id, sanpham sp)
         {
             // TODO: Add delete logic here
-            QuanLyBus.Xoa(id, sp);
+            QuanLySanPhamBus.Xoa(id, sp);
             return RedirectToAction("Index");
         }
         public ActionResult UploadMulti(List<HttpPostedFileBase> uploadFile)
