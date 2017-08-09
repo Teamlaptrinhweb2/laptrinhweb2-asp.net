@@ -29,5 +29,7 @@ namespace _1460650_.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<DienThoaiShopConnection.nhasx> nhasxes { get; set; }
     }
 }
