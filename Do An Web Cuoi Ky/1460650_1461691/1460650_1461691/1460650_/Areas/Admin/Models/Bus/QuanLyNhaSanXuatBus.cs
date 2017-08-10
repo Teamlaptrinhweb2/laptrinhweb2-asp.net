@@ -19,5 +19,23 @@ namespace _1460650_.Areas.Admin.Models.Bus
             return db.SingleOrDefault<nhasx>("Select * from nhasx WHERE ID=@0", id);
 
         }
+        public static void Them(nhasx nsx)
+        {
+            var db = new DienThoaiShopConnectionDB();
+            db.Insert(nsx);
+
+        }
+        public static void Xoa(string id, nhasx nsx)
+        {
+
+            var db = new PetaPoco.Database("DienThoaiShopConnection");
+            db.Delete<nhasx>("where ID=@0", id);
+        }
+        public static void CapNhat(string id, nhasx nsx)
+        {
+            var db = new DienThoaiShopConnectionDB();
+            db.Update<sanpham>("Set TenNSX=@0,HinhAnh=@1", nsx.TenNSX, nsx.HinhAnh, id);
+        }
+
     }
 }

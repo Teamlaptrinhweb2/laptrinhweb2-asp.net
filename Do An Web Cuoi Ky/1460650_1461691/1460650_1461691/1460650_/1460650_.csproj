@@ -283,11 +283,13 @@
     <Content Include="Models\Generated\PetaPoco.Generator.ttinclude" />
     <Content Include="Models\Generated\PetaPoco.Core.ttinclude" />
     <Content Include="Areas\Admin\Views\QuanLySanPham\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\QuanLySanPham\Details.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLySanPham\Create.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLySanPham\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLySanPham\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyNhaSanXuat\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyNhaSanXuat\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyNhaSanXuat\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyNhaSanXuat\Delete.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

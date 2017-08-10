@@ -1,4 +1,5 @@
 ﻿using _1460650_.Areas.Admin.Models.Bus;
+using DienThoaiShopConnection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,13 +31,25 @@ namespace _1460650_.Areas.Admin.Controllers
         }
 
         // POST: Admin/QuanLyNhaSanXuat/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [HttpPost, ValidateInput(false)]
+        public ActionResult Create(nhasx nsx)
         {
             try
             {
-                // TODO: Add insert logic here
+                if (HttpContext.Request.Files.Count > 0)
+                {
+                    var hpf = HttpContext.Request.Files[0];
+                    if (hpf.ContentLength > 0)
+                    {
+                        string filename = Guid.NewGuid().ToString();
 
+                        string fullPathWithFileName = "/images/" + filename + ".jpg";
+                        hpf.SaveAs(Server.MapPath(fullPathWithFileName));
+                        nsx.HinhAnh = fullPathWithFileName;
+                    }
+                }
+                // TODO: Add insert logic here
+                QuanLyNhaSanXuatBus.Them(nsx);
                 return RedirectToAction("Index");
             }
             catch
@@ -46,19 +59,35 @@ namespace _1460650_.Areas.Admin.Controllers
         }
 
         // GET: Admin/QuanLyNhaSanXuat/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            return View();
+            var dataContext = new PetaPoco.Database("DienThoaiShopConnection");
+            var employee = dataContext.SingleOrDefault<sanpham>("Select * from nhasx where ID=@0",
+                                                             id);
+            return View(employee);
         }
 
         // POST: Admin/QuanLyNhaSanXuat/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [HttpPost, ValidateInput(false)]
+        public ActionResult Edit(nhasx nsx)
         {
             try
             {
-                // TODO: Add update logic here
+                    if (HttpContext.Request.Files.Count > 0)
+                    {
+                        var hpf = HttpContext.Request.Files[0];
+                        if (hpf.ContentLength > 0)
+                        {
+                            string filename = Guid.NewGuid().ToString();
 
+                            string fullPathWithFileName = "/images/" + filename + ".jpg";
+                            hpf.SaveAs(Server.MapPath(fullPathWithFileName));
+                            nsx.HinhAnh = fullPathWithFileName;
+                        }
+                    }
+                // TODO: Add update logic here
+                var dataContext = new PetaPoco.Database("DienThoaiShopConnection");
+                dataContext.Update("nhasx", "ID", nsx);
                 return RedirectToAction("Index");
             }
             catch
@@ -75,12 +104,12 @@ namespace _1460650_.Areas.Admin.Controllers
 
         // POST: Admin/QuanLyNhaSanXuat/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(string id, nhasx nsx)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                QuanLyNhaSanXuatBus.Xoa(id, nsx);
                 return RedirectToAction("Index");
             }
             catch
