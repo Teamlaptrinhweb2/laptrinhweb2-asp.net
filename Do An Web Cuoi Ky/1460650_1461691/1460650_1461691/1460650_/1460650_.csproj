@@ -227,8 +227,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\QuanLyLoaiSanPhamController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLyNhaSanXuatController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuanLySanPhamController.cs" />
+    <Compile Include="Areas\Admin\Models\Bus\QuanLyLoaiSanPhamBus.cs" />
     <Compile Include="Areas\Admin\Models\Bus\QuanLySanPhamBus.cs" />
     <Compile Include="Areas\Admin\Models\Bus\QuanLyNhaSanXuatBus.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -290,6 +292,7 @@
     <Content Include="Areas\Admin\Views\QuanLyNhaSanXuat\Create.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyNhaSanXuat\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyNhaSanXuat\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyLoaiSanPham\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

@@ -31,5 +31,7 @@ namespace _1460650_.Models
         }
 
         public System.Data.Entity.DbSet<DienThoaiShopConnection.nhasx> nhasxes { get; set; }
+
+        public System.Data.Entity.DbSet<DienThoaiShopConnection.loaisp> loaisps { get; set; }
     }
 }
