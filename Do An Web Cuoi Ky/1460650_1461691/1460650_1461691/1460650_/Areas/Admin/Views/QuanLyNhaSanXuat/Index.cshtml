@@ -1,15 +1,18 @@
 ﻿@model IEnumerable<DienThoaiShopConnection.nhasx>
 
+@{
+    ViewBag.Title = "Index";
+}
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm Nhà sản xuất", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.TenNSX)
+          Tên Nhà sản xuất
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HinhAnh)
+            Hình ảnh
         </th>
         <th></th>
     </tr>
