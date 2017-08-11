@@ -19,5 +19,22 @@ namespace _1460650_.Areas.Admin.Models.Bus
             return db.SingleOrDefault<loaisp>("Select * from loaisp WHERE ID=@0", id);
 
         }
+        public static void Them(loaisp lsp)
+        {
+            var db = new DienThoaiShopConnectionDB();
+            db.Insert(lsp);
+        }
+        public static void Xoa(string id, loaisp lsp)
+        {
+
+            var db = new PetaPoco.Database("DienThoaiShopConnection");
+            db.Delete<loaisp>("where ID=@0", id);
+        }
+        public static void CapNhat(string id, loaisp lsp)
+        {
+            var db = new DienThoaiShopConnectionDB();
+            db.Update<loaisp>("Set ID=@0,TenLoai=@1", lsp.ID, lsp.TenLoai, id);
+            db.Update(id, lsp);
+        }
     }
 }

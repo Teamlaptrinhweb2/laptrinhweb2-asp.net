@@ -1,4 +1,5 @@
 ﻿using _1460650_.Areas.Admin.Models.Bus;
+using DienThoaiShopConnection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,11 +30,12 @@ namespace _1460650_.Areas.Admin.Controllers
         }
 
         // POST: Admin/QuanLyLoaiSanPham/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        [HttpPost, ValidateInput(false)]
+        public ActionResult Create(loaisp lsp)
         {
             try
             {
+                QuanLyLoaiSanPhamBus.Them(lsp);
                 // TODO: Add insert logic here
 
                 return RedirectToAction("Index");
@@ -45,19 +47,23 @@ namespace _1460650_.Areas.Admin.Controllers
         }
 
         // GET: Admin/QuanLyLoaiSanPham/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(string id)
         {
-            return View();
+            var dataContext = new PetaPoco.Database("DienThoaiShopConnection");
+            var employee = dataContext.SingleOrDefault<sanpham>("Select * from loaisp where ID=@0",
+                                                             id);
+            return View(employee);
         }
 
         // POST: Admin/QuanLyLoaiSanPham/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [HttpPost, ValidateInput(false)]
+        public ActionResult Edit(loaisp lsp)
         {
             try
             {
                 // TODO: Add update logic here
-
+                var dataContext = new PetaPoco.Database("DienThoaiShopConnection");
+                dataContext.Update("loaisp", "ID", lsp);
                 return RedirectToAction("Index");
             }
             catch
@@ -74,12 +80,12 @@ namespace _1460650_.Areas.Admin.Controllers
 
         // POST: Admin/QuanLyLoaiSanPham/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(string id, loaisp lsp)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                QuanLyLoaiSanPhamBus.Xoa(id, lsp);
                 return RedirectToAction("Index");
             }
             catch

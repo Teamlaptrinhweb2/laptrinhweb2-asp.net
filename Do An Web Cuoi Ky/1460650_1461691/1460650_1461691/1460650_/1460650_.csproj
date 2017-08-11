@@ -293,6 +293,9 @@
     <Content Include="Areas\Admin\Views\QuanLyNhaSanXuat\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyNhaSanXuat\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\QuanLyLoaiSanPham\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyLoaiSanPham\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyLoaiSanPham\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\QuanLyLoaiSanPham\Create.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
