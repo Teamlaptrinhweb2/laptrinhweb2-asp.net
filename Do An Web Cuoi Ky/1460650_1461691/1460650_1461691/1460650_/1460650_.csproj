@@ -234,6 +234,7 @@
     <Compile Include="Areas\Admin\Models\Bus\QuanLySanPhamBus.cs" />
     <Compile Include="Areas\Admin\Models\Bus\QuanLyNhaSanXuatBus.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BinhLuanController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiSanPhamController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -243,6 +244,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Bus\BinhLuanBus.cs" />
     <Compile Include="Models\Bus\LoaiSanPhamBus.cs" />
     <Compile Include="Models\Bus\NhaSanXuatBus.cs" />
     <Compile Include="Models\Bus\SanPhamBus.cs" />
@@ -352,6 +354,7 @@
     <Content Include="Views\Shared\_NhaSanXuatMenu.cshtml" />
     <Content Include="Views\LoaiSanPham\Index.cshtml" />
     <Content Include="Views\NhaSanXuat\Index.cshtml" />
+    <Content Include="Views\BinhLuan\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
