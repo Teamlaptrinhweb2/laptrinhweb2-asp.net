@@ -4,7 +4,9 @@
 }
 
 
-<h2>Binh Luan </h2>
+<h2>Binh Luan san pham</h2>
+@if (User.Identity.IsAuthenticated)
+{
 @using (Html.BeginForm("Create", "BinhLuan", FormMethod.Post))
 {
     @Html.AntiForgeryToken()
@@ -13,6 +15,13 @@
 
     <input type="submit" value="Dang" />
 }
+}
+else
+{
+
+    <div>Vui lòng <a href="/Account/Login">đăng nhập</a></div>
+}
+
 <div id="comments">
     @foreach (var item in Model)
     {
