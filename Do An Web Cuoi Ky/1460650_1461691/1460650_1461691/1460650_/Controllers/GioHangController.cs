@@ -34,6 +34,14 @@ namespace _1460650_.Controllers
             GioHangBus.CapNhat(masanpham, User.Identity.GetUserId(), gia, soluong, tensanpham);
             return RedirectToAction("Index");
         }
+        [HttpGet]
+
+        public ActionResult Xoa(int masanpham)
+        {
+
+            GioHangBus.Xoa(masanpham, User.Identity.GetUserId());
+            return RedirectToAction("Index");
+        }
 
     }
 

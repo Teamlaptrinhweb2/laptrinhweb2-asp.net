@@ -48,7 +48,7 @@ namespace _1460650_.Models.Bus
                 return sql.Query<int>("select sum(TongTien) from GioHang2 where MaTaiKhoan = '" + mataikhoan + "'").FirstOrDefault();
             }
         }
-        public static void CapNhat(int masanpham, string mataikhoan, int? gia, int? soluong, string tensanpham)
+          public static void CapNhat(int masanpham, string mataikhoan, int? gia, int? soluong, string tensanpham)
         {
             using (var sql = new DienThoaiShopConnectionDB())
             {
@@ -66,6 +66,14 @@ namespace _1460650_.Models.Bus
                 sql.Update(giohang, tamp.id);
             }
 
+        }
+        public static void Xoa(int masanpham, string mataikhoan)
+        {
+            using (var sql = new DienThoaiShopConnectionDB())
+            {
+                var a = sql.Query<GioHang2>("select * from GioHang2 Where MaTaiKhoan = '" + mataikhoan + "'and MaSanPham ='" + masanpham + "'").FirstOrDefault();
+                sql.Delete(a);
+            }
         }
     }
 }
