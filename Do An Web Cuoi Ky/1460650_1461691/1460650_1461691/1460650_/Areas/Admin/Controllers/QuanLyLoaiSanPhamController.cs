@@ -10,6 +10,7 @@ namespace _1460650_.Areas.Admin.Controllers
 {
     public class QuanLyLoaiSanPhamController : Controller
     {
+        [Authorize(Roles = "Admin")]
         // GET: Admin/QuanLyLoaiSanPham
         public ActionResult Index()
         {
@@ -35,6 +36,18 @@ namespace _1460650_.Areas.Admin.Controllers
         {
             try
             {
+                if (HttpContext.Request.Files.Count > 0)
+                {
+                    var hpf = HttpContext.Request.Files[0];
+                    if (hpf.ContentLength > 0)
+                    {
+                        string filename = Guid.NewGuid().ToString();
+
+                        string fullPathWithFileName = "/images/" + filename + ".jpg";
+                        hpf.SaveAs(Server.MapPath(fullPathWithFileName));
+                        lsp.hinhanh = fullPathWithFileName;
+                    }
+                }
                 QuanLyLoaiSanPhamBus.Them(lsp);
                 // TODO: Add insert logic here
 
@@ -61,6 +74,18 @@ namespace _1460650_.Areas.Admin.Controllers
         {
             try
             {
+                if (HttpContext.Request.Files.Count > 0)
+                {
+                    var hpf = HttpContext.Request.Files[0];
+                    if (hpf.ContentLength > 0)
+                    {
+                        string filename = Guid.NewGuid().ToString();
+
+                        string fullPathWithFileName = "/images/" + filename + ".jpg";
+                        hpf.SaveAs(Server.MapPath(fullPathWithFileName));
+                        lsp.hinhanh = fullPathWithFileName;
+                    }
+                }
                 // TODO: Add update logic here
                 var dataContext = new PetaPoco.Database("DienThoaiShopConnection");
                 dataContext.Update("loaisp", "ID", lsp);
