@@ -1,0 +1,61 @@
+﻿@model IEnumerable<DienThoaiShopConnection.GioHang2>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Giỏ Hàng</h2>
+@foreach (var item in Model)
+{
+    <div>
+        @using (Html.BeginForm("CapNhat", "GioHang", FormMethod.Post))
+        {
+            <div class="name"><h3>@item.TenSanPham</h3></div>
+            <div class="info">
+                <ul>
+                    <li>
+                        <input name="masanpham" value="@item.MaSanPham" />
+                    </li>
+                    <li>
+                        <input name="gia" value="@item.Gia" />
+                    </li>
+                </ul>
+            </div>
+            <div class="price">@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", item.Gia)</div>
+            <label>Số Lượng: </label> <input class="form-inline quantity" min="1" max="50" type="number" value="@item.SoLuong" name="soluong"><input type="submit" class="btn btn-2" value="Update" />
+
+        }
+        <label>Thành Tiền :@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", item.TongTien)</label>
+        <hr>
+        <div class="row">
+            <div class="col-md-4 col-md-offset-8 ">
+                <center><a href="@Url.Action("index","SanPham")" class="btn btn-1">Continue To Shopping</a></center>
+            </div>
+        </div>
+        <div class="row">
+            <div class="pricedetails">
+                <div class="col-md-4 col-md-offset-8">
+                    <h3>Tính Tiền</h3>
+                    <table>
+                        <tr>
+                            <td>Tổng Tiền</td>
+                            <td>@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", ViewBag.TongTien)</td>
+                        </tr>
+                        <tr>
+                            <td>Sale</td>
+                            <td>0%</td>
+                        </tr>
+                        <tr style="border-top: 1px solid #333">
+                            <td><h5>Thành Tiền</h5></td>
+
+                            <td>@String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", ViewBag.TongTien)</td>
+                        </tr>
+                    </table>
+                    <center><a href="#" class="btn btn-1">Checkout</a></center>
+                </div>
+            </div>
+            }
+        </div>
+
+
+        }
+    </div>

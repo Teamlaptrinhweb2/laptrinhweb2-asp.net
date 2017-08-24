@@ -248,6 +248,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Bus\BinhLuanBus.cs" />
+    <Compile Include="Models\Bus\GioHangBus.cs" />
     <Compile Include="Models\Bus\LoaiSanPhamBus.cs" />
     <Compile Include="Models\Bus\NhaSanXuatBus.cs" />
     <Compile Include="Models\Bus\SanPhamBus.cs" />
@@ -361,6 +362,7 @@
     <Content Include="Views\NhaSanXuat\Index.cshtml" />
     <Content Include="Views\BinhLuan\Index.cshtml" />
     <Content Include="Views\TimKiem\Index.cshtml" />
+    <Content Include="Views\GioHang\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -373,7 +375,6 @@
     <Folder Include="img\" />
     <Folder Include="js\" />
     <Folder Include="themes\" />
-    <Folder Include="Views\GioHang\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

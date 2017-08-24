@@ -26,6 +26,15 @@ namespace _1460650_.Controllers
             GioHangBus.ThemGioHang(masanpham, User.Identity.GetUserId(), gia, soluong, tensanpham);
             return RedirectToAction("Index");
         }
-       
+        [HttpPost]
+        public ActionResult CapNhat(int masanpham, string tensanpham, int? gia, int? soluong)
+        {
+
+            //GioHangBus.CapNhat(maSanPham, User.Identity.GetUserId(), soluong);
+            GioHangBus.CapNhat(masanpham, User.Identity.GetUserId(), gia, soluong, tensanpham);
+            return RedirectToAction("Index");
+        }
+
     }
+
 }
