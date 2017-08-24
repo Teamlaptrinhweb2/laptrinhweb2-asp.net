@@ -236,6 +236,7 @@
     <Compile Include="Areas\Admin\Models\Bus\QuanLyNhaSanXuatBus.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BinhLuanController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoaiSanPhamController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -372,6 +373,7 @@
     <Folder Include="img\" />
     <Folder Include="js\" />
     <Folder Include="themes\" />
+    <Folder Include="Views\GioHang\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
