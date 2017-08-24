@@ -36,7 +36,7 @@ namespace _1460650_.Areas.Admin.Controllers
             try
             {
                 // TODO: Add insert logic here
-
+                QuanLyDonDatHang.Them(ddh);
                 return RedirectToAction("Index");
             }
             catch

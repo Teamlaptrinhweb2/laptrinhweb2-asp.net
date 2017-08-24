@@ -19,5 +19,11 @@ namespace _1460650_.Areas.Admin.Models.Bus
             return db.SingleOrDefault<donhang>("Select * from donhang WHERE ID=@0", id);
 
         }
+        public static void Them(donhang ddh)
+        {
+            var db = new DienThoaiShopConnectionDB();
+            db.Insert(ddh);
+
+        }
     }
 }
